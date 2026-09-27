@@ -1,0 +1,198 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 24px;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.navbar__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow);
+  flex-shrink: 0;
+}
+
+.navbar__brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.navbar__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.navbar__subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.navbar__views {
+  display: flex;
+  background-color: var(--bg-surface-elevated);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  gap: 4px;
+}
+
+.navbar__view-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.navbar__view-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.navbar__view-btn--active {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.navbar__status-indicator--online {
+  background-color: var(--success-bg);
+  color: var(--success);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.navbar__status-indicator--online .pulse-indicator {
+  background-color: var(--success);
+}
+
+.navbar__status-indicator--offline {
+  background-color: var(--warning-bg);
+  color: var(--warning);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.navbar__status-indicator--offline .pulse-indicator {
+  background-color: var(--warning);
+}
+
+.navbar__icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.navbar__icon-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  background-color: var(--bg-surface-elevated);
+}
+
+.navbar__cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary-gradient);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm), var(--accent-glow);
+  transition: all var(--transition-fast);
+}
+
+.navbar__cta-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: var(--shadow-md), 0 0 28px rgba(99, 102, 241, 0.45);
+}
+
+.navbar__cta-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .navbar__subtitle {
+    display: none;
+  }
+  .navbar__views span {
+    display: none;
+  }
+}

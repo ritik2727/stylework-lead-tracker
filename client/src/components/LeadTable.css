@@ -1,0 +1,210 @@
+.lead-table-wrapper {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.lead-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.lead-table thead th {
+  padding: 12px 16px;
+  background-color: var(--bg-surface-elevated);
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.lead-table__th-actions {
+  text-align: right;
+  padding-right: 20px !important;
+}
+
+.lead-table tbody tr {
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color var(--transition-fast);
+}
+
+.lead-table tbody tr:hover {
+  background-color: var(--bg-hover);
+}
+
+.lead-table td {
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+/* 1. Name & Company */
+.lead-table__name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lead-table__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+.lead-table__name-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lead-table__name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+
+.lead-table__company {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.lead-table__company--none {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* 2. Contact Details */
+.lead-table__col-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lead-table__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+
+.lead-table__contact-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.lead-table__link {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.lead-table__link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* 3. Status */
+.lead-table__status-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* 4. Date */
+.lead-table__date-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.lead-table__date-icon {
+  color: var(--text-muted);
+}
+
+/* 5. Actions */
+.lead-table__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.lead-table__action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.lead-table__action-btn--edit:hover {
+  color: var(--primary);
+  border-color: var(--primary-light);
+  background-color: var(--primary-light);
+}
+
+.lead-table__action-btn--delete:hover {
+  color: var(--danger);
+  border-color: var(--danger-bg);
+  background-color: var(--danger-bg);
+}
+
+/* Empty State */
+.lead-table-empty {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 60px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lead-table-empty__icon {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface-elevated);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.lead-table-empty h3 {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.lead-table-empty p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 420px;
+}
