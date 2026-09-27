@@ -1,0 +1,35 @@
+// Prisma Schema for Stylework Lead Tracker
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL_SENT
+  WON
+  LOST
+}
+
+model Lead {
+  id        String      @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  status    LeadStatus  @default(NEW)
+  company   String?
+  notes     String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([status])
+  @@index([name])
+  @@index([email])
+}
