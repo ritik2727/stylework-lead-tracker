@@ -92,16 +92,8 @@ export function App() {
 
   // Check backend health
   const checkBackendHealth = useCallback(async () => {
-    try {
-      const res = await fetch('/health');
-      if (res.ok) {
-        setBackendOnline(true);
-      } else {
-        setBackendOnline(false);
-      }
-    } catch {
-      setBackendOnline(false);
-    }
+    const isHealthy = await api.checkHealth();
+    setBackendOnline(isHealthy);
   }, []);
 
   useEffect(() => {

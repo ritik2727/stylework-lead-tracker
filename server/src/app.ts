@@ -45,18 +45,23 @@ export const createApp = (): Express => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // Health check endpoint
-  app.get('/health', (_req: Request, res: Response) => {
+  // Health check endpoints
+  const handleHealth = (_req: Request, res: Response) => {
     res.status(200).json({
       status: 'ok',
       service: 'Stylework Lead Tracker API',
       timestamp: new Date().toISOString(),
       environment: config.nodeEnv,
     });
-  });
+  };
 
-  // API endpoints
+  app.get('/', handleHealth);
+  app.get('/health', handleHealth);
+  app.get('/api/health', handleHealth);
+
+  // API endpoints - supporting both /api/leads and /leads
   app.use('/api/leads', leadRoutes);
+  app.use('/leads', leadRoutes);
 
   // 404 handler
   app.use((_req: Request, res: Response) => {

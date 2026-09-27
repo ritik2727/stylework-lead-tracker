@@ -8,7 +8,16 @@ import type {
   UpdateLeadPayload,
 } from '../types';
 
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const getApiBaseUrl = (): string => {
+  const envUrl = (import.meta.env.VITE_API_URL || '/api').trim();
+  const clean = envUrl.replace(/\/+$/, '');
+  if (clean.startsWith('http') && !clean.endsWith('/api') && !clean.endsWith('/leads')) {
+    return `${clean}/api`;
+  }
+  return clean;
+};
+
+const BASE_URL = getApiBaseUrl();
 
 class ApiError extends Error {
   details?: Array<{ field: string; message: string }>;
@@ -36,6 +45,21 @@ async function handleResponse<T>(res: Response): Promise<T> {
 }
 
 export const api = {
+  /**
+   * Healthcheck
+   */
+  async checkHealth(): Promise<boolean> {
+    try {
+      const healthUrl = BASE_URL.endsWith('/api')
+        ? `${BASE_URL.slice(0, -4)}/health`
+        : `${BASE_URL}/health`;
+      const res = await fetch(healthUrl);
+      return res.ok;
+    } catch {
+      return false;
+    }
+  },
+
   /**
    * Get paginated leads with filters
    */
