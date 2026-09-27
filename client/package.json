@@ -13,7 +13,8 @@
   "dependencies": {
     "lucide-react": "^1.16.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "stylework-lead-tracker": "file:.."
   },
   "devDependencies": {
     "@rolldown/binding-win32-x64-msvc": "^1.2.11",
