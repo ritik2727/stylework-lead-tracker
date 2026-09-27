@@ -3,8 +3,8 @@ import { config } from './config/env.js';
 
 const app = createApp();
 
-const server = app.listen(config.port, () => {
-  console.log(`🚀 Stylework Lead Tracker API listening on http://localhost:${config.port}`);
+const server = app.listen(config.port, '0.0.0.0', () => {
+  console.log(`🚀 Stylework Lead Tracker API listening on http://0.0.0.0:${config.port}`);
   console.log(`📡 Environment: ${config.nodeEnv}`);
 });
 
